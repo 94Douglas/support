@@ -10,7 +10,7 @@ const ticketSchema = mongoose.Schema(
     product: {
       type: String,
       required: [true, "Please select a product"],
-      enum: ["Gata", "Hushåll", "Granne", "Övrigt"],
+      enum: ["Gata", "Stugan", "Granne", "Övrigt"],
     },
     description: {
       type: String,
@@ -19,8 +19,8 @@ const ticketSchema = mongoose.Schema(
     status: {
       type: String,
       required: true,
-      enum: ["Ny", "Öppnad", "Stängd"],
-      default: "Ny",
+      enum: ["Open", "Closed"],
+      default: "Open",
     },
   },
   {
