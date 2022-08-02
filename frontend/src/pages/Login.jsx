@@ -19,7 +19,10 @@ function Login() {
 
   const { user, isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.auth
-  );
+
+    );
+    // const { isAdmin } = useSelector(
+    //   (state) => state.auth);
 
   useEffect(() => {
     if (isError) {
@@ -40,14 +43,14 @@ function Login() {
       [e.target.name]: e.target.value,
     }));
   };
-
+  
   const onSubmit = (e) => {
     e.preventDefault();
-
     const userData = {
       email,
       password,
     };
+    // adminSignedIn()
     dispatch(login(userData));
   };
 

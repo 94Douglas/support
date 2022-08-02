@@ -11,13 +11,14 @@ export const useAuthStatus = () => {
   useEffect(() => {
     if (user) {
         setLoggedIn(true);
-    } else if(user.isAdmin){
-        setAdminLoggedIn(true);
-    }
+    } 
+    // if(user.isAdmin){
+    //     setAdminLoggedIn(true);
+    // }
     else {
       setLoggedIn(false);
     }
     setCheckingStatus(false);
   }, [user]);
-  return { loggedIn, checkingStatus };
+  return { loggedIn,checkingStatus };
 };

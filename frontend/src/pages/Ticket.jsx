@@ -5,7 +5,11 @@ import { FaPlus } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
 import { getTicket, reset, closeTicket } from "../features/Tickets/ticketSlice";
-import { getNotes, createNote, reset as notesReset } from "../features/notes/noteSlice";
+import {
+  getNotes,
+  createNote,
+  reset as notesReset,
+} from "../features/notes/noteSlice";
 import BackButton from "../components/BackButton";
 import Spinner from "../components/Spinner";
 import NoteItem from "../components/NoteItem";
@@ -61,10 +65,10 @@ function Ticket() {
 
   // Create Note submit
   const onNoteSubmit = (e) => {
-    e.preventDefault()
-    dispatch(createNote({noteText, ticketId}));
-    closeModal()
-  }
+    e.preventDefault();
+    dispatch(createNote({ noteText, ticketId }));
+    closeModal();
+  };
 
   // Open/Close Modal
   const openModal = () => setModalIsOpen(true);
@@ -88,9 +92,7 @@ function Ticket() {
             {ticket.status}
           </span>
         </h2>
-        <h3>
-          Datum: {new Date(ticket.createdAt).toLocaleString("eu")}
-        </h3>
+        <h3>Datum: {new Date(ticket.createdAt).toLocaleString("eu")}</h3>
         <h3>Anledning: {ticket.product}</h3>
         <hr />
         <div className="ticket-desc">
@@ -128,7 +130,9 @@ function Ticket() {
             ></textarea>
           </div>
           <div className="form-group">
-            <button className="btn" type="submit">Uppdatera</button>
+            <button className="btn" type="submit">
+              Skicka
+            </button>
           </div>
         </form>
       </Modal>
@@ -139,7 +143,7 @@ function Ticket() {
 
       {ticket.status !== "Closed" && (
         <button onClick={onTicketClose} className="btn btn-block btn-danger">
-          Close Ticket
+          Avsluta Ärende
         </button>
       )}
     </div>

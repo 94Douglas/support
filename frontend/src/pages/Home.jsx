@@ -5,17 +5,10 @@ function Home() {
   return (
     <>
       <section className="heading">
-        <h1>Felanmälan</h1>
-        <p>Välj något av alternativen nedan</p>
+        <h1>Hem</h1>
+        <p>Välkommen till Kållekärr Samfällighet.</p>
       </section>
 
-      <Link to="/new-ticket" className="btn btn-reverse btn-block">
-        <FaQuestionCircle /> Skapa Felanmälan
-      </Link>
-
-      <Link to="/tickets" className="btn btn-block">
-        <FaTicketAlt /> Se Min Felanmälan
-      </Link>
     </>
   );
 }

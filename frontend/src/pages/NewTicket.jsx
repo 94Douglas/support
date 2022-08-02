@@ -45,22 +45,22 @@ function NewTicket() {
     <>
     <BackButton url="/" />
       <section className="heading">
-        <h1>Create New Ticket</h1>
-        <p>Please fill out the form below.</p>
+        <h1>Skapa Ny Felanmälan</h1>
+        <p>Vänligen fyll i nedanstående formulär.</p>
       </section>
 
       <section className="form">
         <div className="form-group">
-          <label htmlFor="name">Customer Name</label>
+          <label htmlFor="name">Anmälarens Namn</label>
           <input type="text" className="form-control" value={name} disabled />
         </div>
         <div className="form-group">
-          <label htmlFor="email">Customer Email</label>
+          <label htmlFor="email">Anmälarens Email</label>
           <input type="text" className="form-control" value={email} disabled />
         </div>
         <form onSubmit={onSubmit}>
           <div className="form-group">
-            <label htmlFor="product">Product</label>
+            <label htmlFor="product">Anledning</label>
             <select
               name="product"
               id="product"
@@ -68,24 +68,24 @@ function NewTicket() {
               onChange={(e) => setProduct(e.target.value)}
             >
               <option value="Gata">Gata</option>
-              <option value="Hushåll">Hushåll</option>
+              <option value="Hushåll">Stugan</option>
               <option value="Granne">Granne</option>
               <option value="Övrigt">Övrigt</option>
             </select>
           </div>
           <div className="form-group">
-            <label htmlFor="description">Description</label>
+            <label htmlFor="description">Beskrivning</label>
             <textarea
               name="description"
               id="description"
               className="form-control"
-              placeholder="Description"
+              placeholder="Beskrivning..."
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             ></textarea>
           </div>
           <div className="form-group">
-            <button className="btn btn-block">Submit</button>
+            <button className="btn btn-block">Skicka</button>
           </div>
         </form>
       </section>

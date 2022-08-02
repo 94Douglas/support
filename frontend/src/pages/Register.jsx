@@ -29,12 +29,13 @@ function Register() {
     }
 
     // Redirect when logged in
-    if (isSuccess || user) {
-      navigate("/");
-    }
+    // if (isSuccess || user) {
+    //   navigate("/");
+    // }
 
     dispatch(reset);
-  }, [isError, isSuccess, user, message, navigate, dispatch]);
+  }, [isError, message, navigate, dispatch]);
+// }, [isError, isSuccess, user, message, navigate, dispatch]);
 
   const onChange = (e) => {
     setFormData((prevState) => ({
