@@ -10,6 +10,9 @@ import Register from './pages/Register';
 import NewTicket from './pages/NewTicket';
 import Tickets from './pages/Tickets';
 import Ticket from './pages/Ticket';
+import ContactUs from './pages/ContactUs';
+import AboutUs from './pages/AboutUs';
+import AnnualReport from './pages/Annual-Report/AnnualReport';
 import TicketFirstPage from './pages/TicketFirstPage';
 import AdminHome from './pages/Admin/AdminHome';
 
@@ -20,6 +23,9 @@ function App() {
         <Header />
           <Routes>
             <Route path='/' element={<Home />} />
+            <Route path='/about-us' element={<AboutUs />} />
+            <Route path='/contact-us' element={<ContactUs />} />
+            <Route path='/annual-report' element={<AnnualReport />} />
             <Route path='/login' element={<Login />} />
             {/* <Route path='/register' element={<Register />} /> */}
 

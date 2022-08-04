@@ -1,5 +1,7 @@
 const path = require("path");
 const express = require("express");
+const cors = require('cors')
+const fileRoute = require('./routes/fileRoutes')
 const colors = require("colors");
 const dotenv = require("dotenv").config();
 const { errorHandler } = require("./middleware/errorMiddleware");
@@ -18,6 +20,9 @@ app.use(express.urlencoded({ extended: false }));
 // Routes
 app.use("/api/users", require("./routes/userRoutes"));
 app.use("/api/tickets", require("./routes/ticketRoutes"));
+
+app.use(cors());
+app.use(fileRoute);
 
 // Serve Frontend (Heroku)
 if (process.env.NODE_ENV === "production") {

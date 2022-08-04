@@ -5,6 +5,7 @@ import { FaUser } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { register, reset } from "../features/auth/authSlice";
 import Spinner from "../components/Spinner";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -12,13 +13,17 @@ function Register() {
     email: "",
     password: "",
     confirmPassword: "",
+    isAdmin: true,
   });
 
-  const { name, email, password, confirmPassword } = formData;
+  const isNotAdmin = false;
+
+  const { name, email, password, confirmPassword, isAdmin } = formData;
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  // user = user information
   const { user, isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.auth
   );
@@ -35,9 +40,11 @@ function Register() {
 
     dispatch(reset);
   }, [isError, message, navigate, dispatch]);
-// }, [isError, isSuccess, user, message, navigate, dispatch]);
+  // }, [isError, isSuccess, user, message, navigate, dispatch]);
 
   const onChange = (e) => {
+    e.preventDefault();
+
     setFormData((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
@@ -49,13 +56,14 @@ function Register() {
 
     if (password !== confirmPassword) {
       toast.error("Passwords do not match!");
-    } else {
+    } else{
       const userData = {
         name,
         email,
         password,
+        isAdmin
       };
-      toast.success(`Successfully created ${formData.name}`)
+      toast.success(`Successfully created ${formData.name}`);
       dispatch(register(userData));
     }
   };
@@ -126,6 +134,44 @@ function Register() {
               required
             />
           </div>
+
+          {/* <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Användare Administratör (Ja/Nej)
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <h5 class="dropdown-item">Ja</h5>
+                <input
+                  type="checkbox"
+                  class="checkboxCenter"
+                  id="adminCheckbox"
+                  name="adminCheckbox"
+                  value={isAdmin}
+                  onChange={onChange}
+                  // onChange={onAdmin}
+                />
+              </li>
+              <li>
+                <h5 class="dropdown-item">Nej</h5>
+                <input
+                  type="checkbox"
+                  class="checkboxCenter"
+                  id="adminCheckbox"
+                  name="adminCheckbox"
+                  value={isNotAdmin}
+                  onChange={onChange}
+                />
+              </li>
+            </ul>
+          </div> */}
+
+          {/* <div className="form-group"></div> */}
           <div className="form-group">
             <button className="btn btn-block">Registrera</button>
           </div>

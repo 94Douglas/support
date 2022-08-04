@@ -136,6 +136,14 @@ h3 {
   margin: 0 0 5px 3px;
 }
 
+.dropdown .checkboxCenter{
+  margin-left: 25%;
+}
+
+.dropdown-item{
+  margin-left: 10%;
+}
+
 .btn {
   padding: 10px 20px;
   border: 1px solid #000;

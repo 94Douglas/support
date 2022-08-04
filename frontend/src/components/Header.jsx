@@ -1,11 +1,16 @@
 import { useState } from "react";
 import { FaSignInAlt, FaSignOutAlt, FaUser, FaTicketAlt } from "react-icons/fa";
-import { BsArrowBarDown } from "react-icons/bs";
-import { GiHamburgerMenu } from "react-icons/gi";
+import { RiCloseLine } from "react-icons/ri";
+import { TbReport } from "react-icons/tb";
+import { MdHome, MdContactPage } from "react-icons/md";
+import { GrGroup } from "react-icons/gr";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout, reset } from "../features/auth/authSlice";
+import Modal from "react-modal";
 import "bootstrap/dist/css/bootstrap.min.css";
+
+Modal.setAppElement("#root");
 
 function Header() {
   const navigate = useNavigate();
@@ -28,6 +33,10 @@ function Header() {
   //     return 'Normal'
   //   }
   // }
+
+  // const openModal = () => setModalIsOpen(true);
+  // const closeModal = () => setModalIsOpen(false);
+  
 
   return (
     <header className="headerr">
@@ -79,24 +88,36 @@ function Header() {
                 class="btn-close"
                 data-bs-dismiss="offcanvas"
                 aria-label="Close"
-              ></button>
+              ><RiCloseLine /></button>
             </div>
             <div class="offcanvas-body">
               <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                <li className="nav-item">
+
+              <li className="nav-item">
                   <a class="nav-link">
-                    <Link to="/">Hem</Link>
+                    <Link to="/"><MdHome /> Min Profil</Link>
                   </a>
                 </li>
 
                 <li className="nav-item">
                   <a class="nav-link">
-                    <Link to="/about-us">Om Oss</Link>
+                    <Link to="/"><MdHome /> Hem</Link>
+                  </a>
+                </li>
+
+                <li className="nav-item">
+                  <a class="nav-link">
+                    <Link to="/about-us" ><GrGroup /> Om Oss</Link>
                   </a>
                 </li>
                 <li className="nav-item">
                   <a class="nav-link">
-                    <Link to="/contact-us">Kontakt</Link>
+                    <Link to="/contact-us"><MdContactPage /> Kontakt</Link>
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a class="nav-link">
+                    <Link to="/annual-report"><TbReport /> Årsredovisning</Link>
                   </a>
                 </li>
                 <br />
@@ -122,17 +143,10 @@ function Header() {
                         </Link>
                       </a>
                     </li>
-                    {/* <li className="nav-item">
-                      <a class="nav-link">
-                        <Link to="/new-ticket">
-                          <FaUser /> Felanmälan
-                        </Link>
-                      </a>
-                    </li> */}
 
                     <li className="nav-item">
                       <a class="nav-link">
-                        <button className="btn" onClick={onLogout}>
+                        <button className="btn btn-danger" onClick={onLogout}>
                           <FaSignOutAlt /> Logga Ut
                         </button>
                       </a>
