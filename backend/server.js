@@ -22,7 +22,7 @@ app.use("/api/users", require("./routes/userRoutes"));
 app.use("/api/tickets", require("./routes/ticketRoutes"));
 
 app.use(cors());
-app.use(fileRoute);
+app.use('/upload', require(fileRoute));
 
 // Serve Frontend (Heroku)
 if (process.env.NODE_ENV === "production") {
