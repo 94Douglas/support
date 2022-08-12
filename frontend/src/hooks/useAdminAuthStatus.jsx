@@ -1,21 +1,23 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
-// User Route
-export const useAuthStatus = () => {
-  const [loggedIn, setLoggedIn] = useState(false);
+// Admin Route
+export const useAdminAuthStatus = () => {
+  const [adminLoggedIn, setAdminLoggedIn] = useState(false);
   const [checkingStatus, setCheckingStatus] = useState(true);
 
   const { user } = useSelector((state) => state.auth);
 
   useEffect(() => {
-    if (user) {
-        setLoggedIn(true);
+    if(user){
+        if(user.isAdmin === true){
+            setAdminLoggedIn(true);
+        }
     }
     else {
-      setLoggedIn(false);
+        setAdminLoggedIn(false);
     }
     setCheckingStatus(false);
   }, [user]);
-  return { loggedIn,checkingStatus };
+  return { adminLoggedIn ,checkingStatus };
 };

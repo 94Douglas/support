@@ -30,7 +30,7 @@ function Tickets() {
 
   return (
   <>
-    <BackButton url="/" />
+    <BackButton url="/ticket-first-page" />
     <h1>Mina Ärenden</h1>
     <div className="tickets">
         <div className="ticket-headings">

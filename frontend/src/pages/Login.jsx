@@ -31,7 +31,13 @@ function Login() {
 
     // Redirect when logged in
     if (isSuccess || user) {
-      navigate("/");
+      if(user.isAdmin === true){
+        navigate("/admin-panel")
+      }
+      else {
+
+        navigate("/");
+      }
     }
 
     dispatch(reset);

@@ -4,6 +4,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from './components/Header';
 import PrivateRoute from './components/PrivateRoute';
+import AdminPrivateRoute from './components/AdminPrivateRoute';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -50,7 +51,7 @@ function App() {
               <Route path='/ticket/:ticketId' element={<Ticket />} />
             </Route>
 
-            <Route path='/admin-panel' element={<PrivateRoute />}>
+            <Route path='/admin-panel' element={<AdminPrivateRoute />}>
               <Route path='/admin-panel' element={<AdminHome />} />
             </Route>
           </Routes>
