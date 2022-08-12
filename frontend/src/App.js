@@ -16,6 +16,7 @@ import AboutUs from './pages/AboutUs';
 import AnnualReport from './pages/Annual-Report/AnnualReport';
 import TicketFirstPage from './pages/TicketFirstPage';
 import AdminHome from './pages/Admin/AdminHome';
+import ViewAllTickets from './pages/Admin/ViewAllTickets';
 
 function App() {
   return <>
@@ -39,10 +40,6 @@ function App() {
               <Route path='/ticket-first-page' element={<TicketFirstPage />} />
             </Route>
 
-            <Route path='/register' element={<PrivateRoute />}>
-              <Route path='/register' element={<Register />} />
-            </Route>
-
             <Route path='/tickets' element={<PrivateRoute />}>
               <Route path='/tickets' element={<Tickets />} />
             </Route>
@@ -53,6 +50,14 @@ function App() {
 
             <Route path='/admin-panel' element={<AdminPrivateRoute />}>
               <Route path='/admin-panel' element={<AdminHome />} />
+            </Route>
+
+            <Route path='/register' element={<AdminPrivateRoute />}>
+              <Route path='/register' element={<Register />} />
+            </Route>
+
+            <Route path='/view-all-tickets' element={<AdminPrivateRoute />}>
+              <Route path='/view-all-tickets' element={<ViewAllTickets />} />
             </Route>
           </Routes>
       </div>

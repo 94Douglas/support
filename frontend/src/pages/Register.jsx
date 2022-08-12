@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { FaUser } from "react-icons/fa";
+import BackButton from "../components/BackButton";
 import { useSelector, useDispatch } from "react-redux";
 import { register, reset } from "../features/auth/authSlice";
 import Spinner from "../components/Spinner";
@@ -75,6 +76,7 @@ function Register() {
   return (
     <>
       <section className="heading">
+      <BackButton url="/admin-panel" />
         <h1>
           <FaUser /> Registrera
         </h1>

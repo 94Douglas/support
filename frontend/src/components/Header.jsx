@@ -1,8 +1,9 @@
 import { useState } from "react";
+import "./Header.css"
 import { FaSignInAlt, FaSignOutAlt, FaUser, FaTicketAlt } from "react-icons/fa";
 import { RiCloseLine } from "react-icons/ri";
 import { TbReport } from "react-icons/tb";
-import { MdHome, MdContactPage } from "react-icons/md";
+import { MdHome, MdContactPage, MdAdminPanelSettings } from "react-icons/md";
 import { GrGroup } from "react-icons/gr";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -36,7 +37,7 @@ function Header() {
 
   // const openModal = () => setModalIsOpen(true);
   // const closeModal = () => setModalIsOpen(false);
-  
+
 
   return (
     <header className="headerr">
@@ -91,16 +92,12 @@ function Header() {
               ><RiCloseLine /></button>
             </div>
             <div class="offcanvas-body">
-              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <div classname="">
+              
+              <ul class="border border-grey navbar-nav justify-content-end flex-grow-1 pe-3 ">
 
-              <li className="nav-item">
-                  <a class="nav-link">
-                    <Link to="/"><MdHome /> Min Profil</Link>
-                  </a>
-                </li>
-
-                <li className="nav-item">
-                  <a class="nav-link">
+                <li className="nav-item ">
+                  <a class="nav-link ">
                     <Link to="/"><MdHome /> Hem</Link>
                   </a>
                 </li>
@@ -124,25 +121,27 @@ function Header() {
                 <br />
                 <br />
                 <br />
-                <br />
-                <br />
-                <br />
+
                 {user ? (
                   <>
-                    <li className="nav-item">
-                      <a class="nav-link">
-                        <Link to="/register">
-                          <FaUser /> Ny Användare
-                        </Link>
-                      </a>
-                    </li>
-                    <li className="nav-item">
-                      <a class="nav-link">
-                        <Link to="/ticket-first-page">
-                        <FaTicketAlt />  Felanmälan
-                        </Link>
-                      </a>
-                    </li>
+                    {/* If admin is logged in, show below */}
+                    {user.isAdmin ? (
+                      <>
+                        <li className="nav-item">
+                          <a class="nav-link">
+                            <Link to="/admin-panel">
+                              <MdAdminPanelSettings /> Admin Panel
+                            </Link>
+                          </a>
+                        </li>
+                      </>
+                      /* If admin not being logged in, show below menu */
+                    ) : (
+                      <>
+
+                      </>
+                    )}
+                    {/* If user is logged in, show below */}
 
                     <li className="nav-item">
                       <a class="nav-link">
@@ -158,6 +157,8 @@ function Header() {
                   </>
                 )}
               </ul>
+              
+            </div>
             </div>
           </div>
         </div>
