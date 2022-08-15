@@ -54,7 +54,7 @@ function Register() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-
+    
     if (password !== confirmPassword) {
       toast.error("Passwords do not match!");
     } else{
@@ -64,8 +64,10 @@ function Register() {
         password,
         isAdmin
       };
+      
       toast.success(`Successfully created ${formData.name}`);
       dispatch(register(userData));
+      window.location.reload();
     }
   };
 

@@ -120,7 +120,6 @@ function Header() {
                 <br />
                 <br />
                 <br />
-                <br />
 
                 {user ? (
                   <>

@@ -38,6 +38,13 @@ const getTicket = async (ticketId, token) => {
   return response.data;
 };
 
+// Get all user Tickets
+const getAllTickets = async (ticketId) => {
+  const response = await axios.get(API_URL + ticketId);
+
+  return response.data;
+};
+
 // Close Ticket
 const closeTicket = async (ticketId, token) => {
   const config = {
@@ -58,6 +65,7 @@ const ticketService = {
   createTicket,
   getTickets,
   getTicket,
+  getAllTickets,
   closeTicket,
 };
 

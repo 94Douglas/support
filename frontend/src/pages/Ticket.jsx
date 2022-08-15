@@ -137,9 +137,9 @@ function Ticket() {
         </form>
       </Modal>
 
-      {notes.map((note) => (
+      {Array.isArray(notes) ? notes.map((note) => (
         <NoteItem key={note._id} note={note} />
-      ))}
+      )) : null}
 
       {ticket.status !== "Closed" && (
         <button onClick={onTicketClose} className="btn btn-block btn-danger">

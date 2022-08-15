@@ -16,7 +16,7 @@ import AboutUs from './pages/AboutUs';
 import AnnualReport from './pages/Annual-Report/AnnualReport';
 import TicketFirstPage from './pages/TicketFirstPage';
 import AdminHome from './pages/Admin/AdminHome';
-import ViewAllTickets from './pages/Admin/ViewAllTickets';
+import ViewAllTickets from './pages/Admin/ViewAllTicketsAdmin/ViewAllTickets';
 
 function App() {
   return <>

@@ -18,6 +18,10 @@ const getNotes = asyncHandler(async (req, res) => {
 
   const ticket = await Ticket.findById(req.params.ticketId);
 
+  if (user.isAdmin) {
+    res.status(200).json(notes);
+  }
+
   if (ticket.user.toString() !== req.user.id) {
     res.status(401);
     throw new Error("User not authorized");

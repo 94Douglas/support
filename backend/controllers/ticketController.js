@@ -39,6 +39,10 @@ const getTicket = asyncHandler(async (req, res) => {
     throw new Error("Ticket not found.");
   }
 
+  if (user.isAdmin) {
+    res.status(200).json(ticket);
+  }
+  
   if (ticket.user.toString() !== req.user.id) {
     res.status(401);
     throw new Error("Not Authorized.");
@@ -109,35 +113,39 @@ const deleteTicket = asyncHandler(async (req, res) => {
 // @route  PUT /api/tickets/:id
 // @access Private
 const updateTicket = asyncHandler(async (req, res) => {
-    // Get user using the id in the JWT
-    const user = await User.findById(req.user.id);
-  
-    if (!user) {
-      res.status(401);
-      throw new Error("User not found");
-    }
-  
-    const ticket = await Ticket.findById( req.params.id );
+  // Get user using the id in the JWT
+  const user = await User.findById(req.user.id);
 
-    if(!ticket){
-        res.status(404)
-        throw new Error('Ticket not found.');
-    }
+  if (!user) {
+    res.status(401);
+    throw new Error("User not found");
+  }
 
-    if(ticket.user.toString() !== req.user.id){
-        res.status(401)
-        throw new Error('Not Authorized.')
-    }
+  const ticket = await Ticket.findById(req.params.id);
 
-    const updatedTicket = await Ticket.findByIdAndUpdate(req.params.id, req.body, { new: true })
-  
-    res.status(200).json( updatedTicket );
-  });
+  if (!ticket) {
+    res.status(404);
+    throw new Error("Ticket not found.");
+  }
+
+  if (ticket.user.toString() !== req.user.id) {
+    res.status(401);
+    throw new Error("Not Authorized.");
+  }
+
+  const updatedTicket = await Ticket.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    { new: true }
+  );
+
+  res.status(200).json(updatedTicket);
+});
 
 module.exports = {
   getTickets,
   createTicket,
   getTicket,
   deleteTicket,
-  updateTicket
+  updateTicket,
 };
