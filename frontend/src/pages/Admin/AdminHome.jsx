@@ -1,4 +1,4 @@
-import AdminOption from '../../components/AdminOption'
+import AdminOption from '../../components/AdminComps/AdminOption'
 
 function AdminHome() {
   return (

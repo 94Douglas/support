@@ -35,11 +35,10 @@ export default class ContactUs extends Component {
       <Table striped bordered hover>
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Phone</th>
+            <th>Namn</th>
+            <th>Telefonnummer</th>
             <th>Email</th>
-            <th>Role</th>
-            <th>Action</th>
+            <th>Roll</th>
           </tr>
         </thead>
         <tbody>

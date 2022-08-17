@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./Header.css"
 import { FaSignInAlt, FaSignOutAlt, FaUser, FaTicketAlt } from "react-icons/fa";
 import { RiCloseLine } from "react-icons/ri";
 import { TbReport } from "react-icons/tb";

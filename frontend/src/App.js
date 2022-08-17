@@ -4,7 +4,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from './components/Header';
 import PrivateRoute from './components/PrivateRoute';
-import AdminPrivateRoute from './components/AdminPrivateRoute';
+import AdminPrivateRoute from './components/AdminComps/AdminPrivateRoute';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -18,7 +18,7 @@ import TicketFirstPage from './pages/TicketFirstPage';
 import AdminHome from './pages/Admin/AdminHome';
 import EditContactPerson from './components/EditContactPerson';
 import ViewAllTickets from './pages/Admin/ViewAllTicketsAdmin/ViewAllTickets';
-import TestPage from './components/testComp'
+import ContactPersonCRUDPage from './components/AdminComps/ContactPersonCRUD'
 
 function App() {
   return <>
@@ -31,8 +31,6 @@ function App() {
             <Route path='/contact-us' element={<ContactUs />} />
             <Route path='/annual-report' element={<AnnualReport />} />
             <Route path='/login' element={<Login />} />
-            <Route path='/test-page' element={<TestPage />} />
-            <Route path='/edit-contact-name' element={<EditContactPerson />} />
             {/* <Route path='/register' element={<Register />} /> */}
 
             {/* Private Route below */}
@@ -63,6 +61,15 @@ function App() {
             <Route path='/view-all-tickets' element={<AdminPrivateRoute />}>
               <Route path='/view-all-tickets' element={<ViewAllTickets />} />
             </Route>
+
+            <Route path='/contact-person-crud' element={<AdminPrivateRoute />}>
+              <Route path='/contact-person-crud' element={<ContactPersonCRUDPage />} />
+            </Route>
+
+            <Route path='/edit-contact-name' element={<AdminPrivateRoute />}>
+              <Route path='/edit-contact-name' element={<EditContactPerson />} />
+            </Route>
+
           </Routes>
       </div>
     </Router>

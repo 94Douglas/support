@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button';
+import { toast } from "react-toastify";
+import Table from 'react-bootstrap/Table';
+import "../components/../styleContact.css";
 import axios from 'axios';
+import ContactTableRowAdmin from "./ContactTableRowAdmin";
 
 export default class testComp extends Component {
   constructor(props) {
@@ -17,7 +21,8 @@ export default class testComp extends Component {
       contactName: '',
       contactPhone: '',
       contactEmail: '',
-      contactRole: ''
+      contactRole: '',
+      contactPersons: []
     }
   }
   onChangeContactName(e) {
@@ -43,30 +48,68 @@ export default class testComp extends Component {
     axios.post('http://localhost:5000/contact-info/create-contact-name', contactObject)
       .then(res => console.log(res.data));
     this.setState({ contactName: '', contactPhone: '', contactEmail: '', contactRole: '' })
+
+    toast.success(`Successfully created ${this.state.contactName}`);
+    window.location.reload();
+
+  }
+  componentDidMount() {
+    axios.get('http://localhost:5000/contact-info')
+      .then(res => {
+        this.setState({
+          contactPersons: res.data
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  }
+  DataTable() {
+    return this.state.contactPersons.map((res, i) => {
+      return <ContactTableRowAdmin obj={res} key={i} />;
+    });
   }
   render() {
     return (<div className="form-wrapper">
       <Form onSubmit={this.onSubmit}>
         <Form.Group controlId="Name">
-          <Form.Label>Name</Form.Label>
-          <Form.Control type="text" value={this.state.contactName} onChange={this.onChangeContactName} />
+          <Form.Label>Namn</Form.Label>
+          <Form.Control type="text" placeholder="Namn" value={this.state.contactName} onChange={this.onChangeContactName} />
         </Form.Group>
         <Form.Group controlId="Phone">
-          <Form.Label>Phone</Form.Label>
-          <Form.Control type="text" value={this.state.contactPhone} onChange={this.onChangeContactPhone} />
+          <Form.Label>Telefonnummer</Form.Label>
+          <Form.Control type="text" placeholder="Telefonnummer" value={this.state.contactPhone} onChange={this.onChangeContactPhone} />
         </Form.Group>
         <Form.Group controlId="Email">
           <Form.Label>Email</Form.Label>
-          <Form.Control type="email" value={this.state.contactEmail} onChange={this.onChangeContactEmail} />
+          <Form.Control type="email" placeholder="Email" value={this.state.contactEmail} onChange={this.onChangeContactEmail} />
         </Form.Group>
         <Form.Group controlId="Name">
-          <Form.Label>Role</Form.Label>
-          <Form.Control type="text" value={this.state.contactRole} onChange={this.onChangeContactRole} />
+          <Form.Label>Roll</Form.Label>
+          <Form.Control type="text" placeholder="Roll" value={this.state.contactRole} onChange={this.onChangeContactRole} />
         </Form.Group>
         <Button variant="danger" size="lg" block="block" type="submit" className="mt-4">
-          Create Page Person
+          Skapa Person
         </Button>
       </Form>
+
+      <div className="table-wrapper">
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>Namn</th>
+              <th>Telefonnummer</th>
+              <th>Email</th>
+              <th>Roll</th>
+              <th>Radera</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.DataTable()}
+          </tbody>
+        </Table>
+      </div>
+
     </div>);
   }
 }

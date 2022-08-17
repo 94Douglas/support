@@ -1,7 +1,7 @@
 import React from 'react'
 import { Navigate, Outlet } from 'react-router-dom'
-import {useAdminAuthStatus} from '../hooks/useAdminAuthStatus'
-import Spinner from './Spinner'
+import {useAdminAuthStatus} from '../../hooks/useAdminAuthStatus'
+import Spinner from '../Spinner'
 
 // Checks if admin is logged in or not.
 const AdminPrivateRoute = () => {
