@@ -117,6 +117,7 @@ function Header() {
                     <Link to="/annual-report"><TbReport /> Årsredovisning</Link>
                   </a>
                 </li>
+                
                 <br />
                 <br />
                 <br />
@@ -137,7 +138,11 @@ function Header() {
                       /* If admin not being logged in, show below menu */
                     ) : (
                       <>
-
+                        <li className="nav-item">
+                  <a class="nav-link">
+                    <Link to="/ticket-first-page"><TbReport /> Felanmälan</Link>
+                  </a>
+                </li>
                       </>
                     )}
                     {/* If user is logged in, show below */}

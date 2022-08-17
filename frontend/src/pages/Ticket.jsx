@@ -30,6 +30,8 @@ const customStyles = {
 Modal.setAppElement("#root");
 
 function Ticket() {
+  const { user } = useSelector((state) => state.auth);
+
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [noteText, setNoteText] = useState("");
 
@@ -107,7 +109,6 @@ function Ticket() {
           <FaPlus /> Lägg Till Anteckning
         </button>
       )}
-
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
@@ -130,16 +131,18 @@ function Ticket() {
             ></textarea>
           </div>
           <div className="form-group">
-            <button className="btn" type="submit">
-              Skicka
-            </button>
+            {user ? (
+              <button className="btn" type="submit">
+                Skicka
+              </button>
+            ) : null}
           </div>
         </form>
       </Modal>
 
-      {Array.isArray(notes) ? notes.map((note) => (
-        <NoteItem key={note._id} note={note} />
-      )) : null}
+      {Array.isArray(notes)
+        ? notes.map((note) => <NoteItem key={note._id} note={note} />)
+        : null}
 
       {ticket.status !== "Closed" && (
         <button onClick={onTicketClose} className="btn btn-block btn-danger">

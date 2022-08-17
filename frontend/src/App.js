@@ -16,7 +16,9 @@ import AboutUs from './pages/AboutUs';
 import AnnualReport from './pages/Annual-Report/AnnualReport';
 import TicketFirstPage from './pages/TicketFirstPage';
 import AdminHome from './pages/Admin/AdminHome';
+import EditContactPerson from './components/EditContactPerson';
 import ViewAllTickets from './pages/Admin/ViewAllTicketsAdmin/ViewAllTickets';
+import TestPage from './components/testComp'
 
 function App() {
   return <>
@@ -29,6 +31,8 @@ function App() {
             <Route path='/contact-us' element={<ContactUs />} />
             <Route path='/annual-report' element={<AnnualReport />} />
             <Route path='/login' element={<Login />} />
+            <Route path='/test-page' element={<TestPage />} />
+            <Route path='/edit-contact-name' element={<EditContactPerson />} />
             {/* <Route path='/register' element={<Register />} /> */}
 
             {/* Private Route below */}

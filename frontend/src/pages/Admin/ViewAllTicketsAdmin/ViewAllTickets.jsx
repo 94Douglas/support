@@ -20,6 +20,7 @@ import BackButton from "../../../components/BackButton";
 import Spinner from "../../../components/Spinner";
 import NoteItem from "../../../components/NoteItem";
 import TicketItem from "../../../components/TicketItem";
+import TicketItemAdmin from "./TicketItemAdmin";
 
 const customStyles = {
   content: {
@@ -37,50 +38,6 @@ const customStyles = {
 Modal.setAppElement("#root");
 
 function ViewAllTickets() {
-  //   const [modalIsOpen, setModalIsOpen] = useState(false);
-  // const [noteText, setNoteText] = useState("");
-
-  // const { ticket, isLoading, isSuccess, isError, message } = useSelector(
-  //   (state) => state.tickets
-  // );
-
-  // const { notes, isLoading: notesIsLoading } = useSelector(
-  //   (state) => state.notes
-  // );
-
-  // const params = useParams();
-  // const navigate = useNavigate();
-  // const dispatch = useDispatch();
-  // const { ticketId } = useParams();
-
-  // useEffect(() => {
-  //   if (isError) {
-  //     toast.error(message);
-  //   }
-
-  //   dispatch(getTickets(ticketId));
-  //   // dispatch(getNotes(ticketId));
-  //   // eslint-disable-next-line
-  // }, [isError, message, ticketId]);
-
-  // // Close Ticket
-  // const onTicketClose = () => {
-  //   dispatch(closeTicket(ticketId));
-  //   toast.success("Ticket Closed");
-  //   navigate("/tickets");
-  // };
-
-  // // Create Note submit
-  // const onNoteSubmit = (e) => {
-  //   e.preventDefault();
-  //   dispatch(createNote({ noteText, ticketId }));
-  //   closeModal();
-  // };
-
-  // // Open/Close Modal
-  // const openModal = () => setModalIsOpen(true);
-  // const closeModal = () => setModalIsOpen(false);
-
   const { tickets, isLoading, isSuccess } = useSelector(
     (state) => state.tickets
   );
@@ -104,7 +61,7 @@ function ViewAllTickets() {
   }
   return (
     <>
-      <BackButton url="/ticket-first-page" />
+      <BackButton url="/admin-panel" />
       <h1>Alla Felanmälningar</h1>
       <div className="tickets">
         <div className="ticket-headings">
@@ -114,7 +71,7 @@ function ViewAllTickets() {
           <div></div>
         </div>
         {tickets.map((ticket) => {
-          return <TicketItem key={ticket._id} ticket={ticket} />;
+          return <TicketItemAdmin key={ticket._id} ticket={ticket} />;
         })}
       </div>
     </>
