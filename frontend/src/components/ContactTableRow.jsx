@@ -24,7 +24,6 @@ export default class ContactTableRow extends Component {
       });
   }
   render() {
-
     return (
       <tr>
         <td>{this.props.obj.contactName}</td>
@@ -33,6 +32,6 @@ export default class ContactTableRow extends Component {
         <td>{this.props.obj.contactRole}</td>
        
       </tr>
-    );
+        );
   }
 }

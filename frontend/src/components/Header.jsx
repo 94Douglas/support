@@ -37,17 +37,15 @@ function Header() {
   // const openModal = () => setModalIsOpen(true);
   // const closeModal = () => setModalIsOpen(false);
 
-
   return (
     <header className="headerr">
       <div className="logo">
-        <Link to="/">Felanmälan - KålleKärr</Link>
+        <Link to="/">KålleKärr Samfällighet</Link>
       </div>
-
       <ul>
         {user ? (
           <li>
-            <h4>Inloggad som: {user.name}</h4>
+            Inloggad som: {user.name}
             {/* <h3>Roll: {adminSignedIn()}</h3> */}
           </li>
         ) : (
@@ -88,80 +86,87 @@ function Header() {
                 class="btn-close"
                 data-bs-dismiss="offcanvas"
                 aria-label="Close"
-              ><RiCloseLine /></button>
+              >
+                <RiCloseLine />
+              </button>
             </div>
             <div class="offcanvas-body">
-            <div classname="">
-              
-              <ul class="border border-grey navbar-nav justify-content-end flex-grow-1 pe-3 ">
+              <div classname="">
+                <ul class="border border-grey navbar-nav justify-content-end flex-grow-1 pe-3 ">
+                  <li className="nav-item ">
+                    <a class="nav-link ">
+                      <Link to="/">
+                        <MdHome /> Hem
+                      </Link>
+                    </a>
+                  </li>
 
-                <li className="nav-item ">
-                  <a class="nav-link ">
-                    <Link to="/"><MdHome /> Hem</Link>
-                  </a>
-                </li>
+                  <li className="nav-item">
+                    <a class="nav-link">
+                      <Link to="/about-us">
+                        <GrGroup /> Om Oss
+                      </Link>
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <a class="nav-link">
+                      <Link to="/contact-us">
+                        <MdContactPage /> Kontakt
+                      </Link>
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <a class="nav-link">
+                      <Link to="/annual-report">
+                        <TbReport /> Årsredovisning
+                      </Link>
+                    </a>
+                  </li>
 
-                <li className="nav-item">
-                  <a class="nav-link">
-                    <Link to="/about-us" ><GrGroup /> Om Oss</Link>
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a class="nav-link">
-                    <Link to="/contact-us"><MdContactPage /> Kontakt</Link>
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a class="nav-link">
-                    <Link to="/annual-report"><TbReport /> Årsredovisning</Link>
-                  </a>
-                </li>
-                
-                <br />
-                <br />
-                <br />
+                  <br />
+                  <br />
+                  <br />
 
-                {user ? (
-                  <>
-                    {/* If admin is logged in, show below */}
-                    {user.isAdmin ? (
-                      <>
-                        <li className="nav-item">
-                          <a class="nav-link">
-                            <Link to="/admin-panel">
-                              <MdAdminPanelSettings /> Admin Panel
-                            </Link>
-                          </a>
-                        </li>
-                      </>
-                      /* If admin not being logged in, show below menu */
-                    ) : (
-                      <>
-                        <li className="nav-item">
-                  <a class="nav-link">
-                    <Link to="/ticket-first-page"><TbReport /> Felanmälan</Link>
-                  </a>
-                </li>
-                      </>
-                    )}
-                    {/* If user is logged in, show below */}
+                  {user ? (
+                    <>
+                      {/* If admin is logged in, show below */}
+                      {user.isAdmin ? (
+                        <>
+                          <li className="nav-item">
+                            <a class="nav-link">
+                              <Link to="/admin-panel">
+                                <MdAdminPanelSettings /> Admin Panel
+                              </Link>
+                            </a>
+                          </li>
+                        </>
+                      ) : (
+                        /* If admin not being logged in, show below menu */
+                        <>
+                          <li className="nav-item">
+                            <a class="nav-link">
+                              <Link to="/ticket-first-page">
+                                <TbReport /> Felanmälan
+                              </Link>
+                            </a>
+                          </li>
+                        </>
+                      )}
+                      {/* If user is logged in, show below */}
 
-                    <li className="nav-item">
-                      <a class="nav-link">
-                        <button className="btn btn-danger" onClick={onLogout}>
-                          <FaSignOutAlt /> Logga Ut
-                        </button>
-                      </a>
-                    </li>
-                  </>
-                ) : (
-                  <>
-
-                  </>
-                )}
-              </ul>
-              
-            </div>
+                      <li className="nav-item">
+                        <a class="nav-link">
+                          <button className="btn btn-danger" onClick={onLogout}>
+                            <FaSignOutAlt /> Logga Ut
+                          </button>
+                        </a>
+                      </li>
+                    </>
+                  ) : (
+                    <></>
+                  )}
+                </ul>
+              </div>
             </div>
           </div>
         </div>

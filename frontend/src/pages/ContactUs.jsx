@@ -31,7 +31,13 @@ export default class ContactUs extends Component {
   }
 
   render() {
-    return (<div className="table-wrapper">
+    return (
+    <div>
+        <section className="heading">
+        <h1>Kontaktuppgifter</h1>
+        {/* <p>Kontaktuppgifter till styrelsemedlemmar</p> */}
+      </section>
+      <div className="table-wrapper">
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -45,6 +51,7 @@ export default class ContactUs extends Component {
           {this.DataTable()}
         </tbody>
       </Table>
+      </div>
     </div>);
   }
 }

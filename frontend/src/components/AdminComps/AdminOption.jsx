@@ -36,8 +36,8 @@ function AdminOption() {
                 <ul>
                     <RiInformationFill />
                     <li>
-                        <Link to="/register">
-                            Uppdatera Information
+                        <Link to="/contact-person-crud">
+                            Skapa / Ändra styrelsemedlem
                         </Link>
                     </li>
                 </ul>

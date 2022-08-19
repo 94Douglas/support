@@ -70,30 +70,43 @@ export default class testComp extends Component {
     });
   }
   render() {
-    return (<div className="form-wrapper">
+    return (<div>
+      <div className="form-wrapper">
+      <section className="heading">
+        <p>Skapa Styrelsemedlem till Kontakt Sidan</p>
+        {/* <p>Kontaktuppgifter till styrelsemedlemmar</p> */}
+      </section>
       <Form onSubmit={this.onSubmit}>
         <Form.Group controlId="Name">
-          <Form.Label>Namn</Form.Label>
+          {/* <Form.Label>Namn</Form.Label> */}
           <Form.Control type="text" placeholder="Namn" value={this.state.contactName} onChange={this.onChangeContactName} />
         </Form.Group>
+        <br />
         <Form.Group controlId="Phone">
-          <Form.Label>Telefonnummer</Form.Label>
+          {/* <Form.Label>Telefonnummer</Form.Label> */}
           <Form.Control type="text" placeholder="Telefonnummer" value={this.state.contactPhone} onChange={this.onChangeContactPhone} />
         </Form.Group>
+        <br />
         <Form.Group controlId="Email">
-          <Form.Label>Email</Form.Label>
+          {/* <Form.Label>Email</Form.Label> */}
           <Form.Control type="email" placeholder="Email" value={this.state.contactEmail} onChange={this.onChangeContactEmail} />
         </Form.Group>
+        <br />
         <Form.Group controlId="Name">
-          <Form.Label>Roll</Form.Label>
+          {/* <Form.Label>Roll</Form.Label> */}
           <Form.Control type="text" placeholder="Roll" value={this.state.contactRole} onChange={this.onChangeContactRole} />
         </Form.Group>
-        <Button variant="danger" size="lg" block="block" type="submit" className="mt-4">
+        <Button variant="success" size="lg" block="block" type="submit" className="mt-4">
           Skapa Person
         </Button>
       </Form>
+      </div>
 
-      <div className="table-wrapper">
+      <div className="table-wrapper-admin">
+      <section className="heading">
+        <p>Översikt Styrelsemedlemmar</p>
+        {/* <p>Kontaktuppgifter till styrelsemedlemmar</p> */}
+      </section>
         <Table striped bordered hover>
           <thead>
             <tr>
