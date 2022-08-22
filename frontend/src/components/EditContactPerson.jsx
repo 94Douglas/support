@@ -54,7 +54,8 @@ export default class EditContactPerson extends Component {
         contactEmail: this.state.contactEmail,
         contactRole: this.state.contactRole
       };
-    axios.put('http://localhost:5000/contact-info/update-contact-name/' + this.props.match.params.id, contactObject)
+    // axios.put('http://localhost:5000/contact-info/update-contact-name/' + this.props.match.params.id, contactObject)
+    axios.put('https://olovshageback.herokuapp.com/contact-info/update-contact-name/' + this.props.match.params.id, contactObject)
       .then((res) => {
         console.log(res.data)
         console.log('Successfully updated')

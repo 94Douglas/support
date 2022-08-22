@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
+const BACKEND = process.env.BACKEND_API;
 
 export default class ContactTableRow extends Component {
   
@@ -13,7 +14,9 @@ export default class ContactTableRow extends Component {
   deleteContactPerson() {
     axios
       .delete(
-        "http://localhost:5000/contact-info/delete-contact-name/" +
+        // "http://localhost:5000/contact-info/delete-contact-name/" +
+        // "https://olovshageback.herokuapp.com/contact-info/delete-contact-name/" +
+        BACKEND + "/contact-info/delete-contact-name/" +
         this.props.obj._id
       )
       .then((res) => {

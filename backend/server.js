@@ -13,7 +13,7 @@ connectDB();
 
 const app = express();
 
-// Convert data to json from POST requests.
+// Convert data to json from POST requestss.
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 

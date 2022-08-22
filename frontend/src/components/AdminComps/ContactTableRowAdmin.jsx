@@ -12,12 +12,13 @@ export default class ContactTableRowAdmin extends Component {
     deleteContactPerson() {
         axios
             .delete(
-                "http://localhost:5000/contact-info/delete-contact-name/" +
+                // "http://localhost:5000/contact-info/delete-contact-name/" +
+                "https://olovshageback.herokuapp.com/contact-info/delete-contact-name/" +
                 this.props.obj._id
             )
             .then((res) => {
                 toast.success(`Successfully Deleted ${this.props.obj.contactName}`);
-                window.location.reload();
+                // window.location.reload();
             })
             .catch((error) => {
                 toast.error(`Something went wrong.`);

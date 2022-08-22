@@ -45,16 +45,18 @@ export default class testComp extends Component {
       contactEmail: this.state.contactEmail,
       contactRole: this.state.contactRole
     };
-    axios.post('http://localhost:5000/contact-info/create-contact-name', contactObject)
+    // axios.post('http://localhost:5000/contact-info/create-contact-name', contactObject)
+    axios.post('https://olovshageback.herokuapp.com/contact-info/create-contact-name', contactObject)
       .then(res => console.log(res.data));
     this.setState({ contactName: '', contactPhone: '', contactEmail: '', contactRole: '' })
 
     toast.success(`Successfully created ${this.state.contactName}`);
-    window.location.reload();
+    // window.location.reload();
 
   }
   componentDidMount() {
-    axios.get('http://localhost:5000/contact-info')
+    // axios.get('http://localhost:5000/contact-info')
+    axios.get('https://olovshageback.herokuapp.com/contact-info')
       .then(res => {
         this.setState({
           contactPersons: res.data

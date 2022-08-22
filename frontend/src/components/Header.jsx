@@ -40,7 +40,7 @@ function Header() {
   return (
     <header className="headerr">
       <div className="logo">
-        <Link to="/">KålleKärr Samfällighet</Link>
+        <Link to="/">Olovs Hage - Samfällighet</Link>
       </div>
       <ul>
         {user ? (
