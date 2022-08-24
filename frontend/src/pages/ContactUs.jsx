@@ -37,7 +37,6 @@ export default class ContactUs extends Component {
         <section className="heading">
         <h1>Kontaktuppgifter</h1>
         {/* <p>Kontaktuppgifter till styrelsemedlemmar</p> */}
-        <p>Hej testar</p>
       </section>
       <div className="table-wrapper">
       <Table striped bordered hover>
