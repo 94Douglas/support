@@ -6,6 +6,10 @@ function AboutUs() {
       <section className="heading">
         <h1>Om Oss</h1>
         <p>About Us Page.</p>
+        <p>About Us Page.</p>
+        <p>About Us Page.</p>
+        <p>About Us Page.</p>
+        <p>About Us Page.</p>
       </section>
 
     </>
