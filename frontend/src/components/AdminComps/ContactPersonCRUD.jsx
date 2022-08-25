@@ -51,7 +51,7 @@ export default class testComp extends Component {
     this.setState({ contactName: '', contactPhone: '', contactEmail: '', contactRole: '' })
 
     toast.success(`Successfully created ${this.state.contactName}`);
-    window.location.reload();
+    // window.location.reload();
 
   }
   componentDidMount() {
@@ -71,6 +71,11 @@ export default class testComp extends Component {
       return <ContactTableRowAdmin obj={res} key={i} />;
     });
   }
+
+  RefreshPage() {
+    window.location.reload();
+  }
+
   render() {
     return (<div>
       <div className="form-wrapper">
@@ -101,7 +106,9 @@ export default class testComp extends Component {
         <Button variant="success" size="lg" block="block" type="submit" className="mt-4">
           Skapa Person
         </Button>
+
       </Form>
+        <Button variant="danger" size="lg" block="block" type="submit" className="mt-4" onClick={this.RefreshPage}>Ladda Om Sidan</Button>
       </div>
 
       <div className="table-wrapper-admin">
