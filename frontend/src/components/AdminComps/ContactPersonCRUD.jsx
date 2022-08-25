@@ -51,7 +51,7 @@ export default class testComp extends Component {
     this.setState({ contactName: '', contactPhone: '', contactEmail: '', contactRole: '' })
 
     toast.success(`Successfully created ${this.state.contactName}`);
-    // window.location.reload();
+    window.location.reload();
 
   }
   componentDidMount() {
