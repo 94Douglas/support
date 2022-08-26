@@ -398,6 +398,18 @@ footer {
   animation: spin 1.2s linear infinite;
 }
 
+.imageSlider{
+  margin-bottom: 20px;
+  
+}
+
+.imageSliderOne{
+  border-top-right-radius: 80%;  
+  border-top-left-radius: 2%;  
+  border-bottom-right-radius: 2%;  
+  border-bottom-left-radius: 2%;  
+}
+
 /* Hamburger bar */
 .navbar {
   width: 50px;
