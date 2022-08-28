@@ -7,7 +7,7 @@ function Home() {
     <>
       <section className="heading">
         <h1>Hem</h1>
-        <p>Välkommen till Kållekärr Samfällighet.</p>
+        <p>Välkommen till Olovs Hages Samfällighet.</p>
 
     </section>
     <div className="imageSlider">

@@ -44,6 +44,7 @@ function Header() {
       </div>
       <ul>
         {user ? (
+          
           <li>
             Inloggad som: {user.name}
             {/* <h3>Roll: {adminSignedIn()}</h3> */}
@@ -58,6 +59,7 @@ function Header() {
           </>
         )}
       </ul>
+        
 
       <nav class="navbar fixed-right">
         <div class="container">
@@ -89,6 +91,24 @@ function Header() {
               >
                 <RiCloseLine />
               </button>
+
+              <ul>
+        {user ? (
+          
+          <li>
+            Inloggad som: {user.name}
+            {/* <h3>Roll: {adminSignedIn()}</h3> */}
+          </li>
+        ) : (
+          <>
+            <li>
+              <Link to="/login">
+                <FaSignInAlt /> Logga In
+              </Link>
+            </li>
+          </>
+        )}
+      </ul>
             </div>
             <div class="offcanvas-body">
               <div classname="">

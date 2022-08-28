@@ -19,7 +19,9 @@ import TicketFirstPage from './pages/TicketFirstPage';
 import AdminHome from './pages/Admin/AdminHome';
 import EditContactPerson from './components/EditContactPerson';
 import ViewAllTickets from './pages/Admin/ViewAllTicketsAdmin/ViewAllTickets';
-import ContactPersonCRUDPage from './components/AdminComps/ContactPersonCRUD'
+import ContactPersonCRUDPage from './components/AdminComps/ContactPersonCRUD';
+import Footer from './components/Footer';
+import CreatedBy from './pages/Creator/CreatedBy';
 
 function App() {
   return <>
@@ -32,6 +34,7 @@ function App() {
             <Route path='/contact-us' element={<ContactUs />} />
             <Route path='/annual-report' element={<AnnualReport />} />
             <Route path='/login' element={<Login />} />
+            <Route path='/createdBy' element={<CreatedBy />} />
             {/* <Route path='/register' element={<Register />} /> */}
 
             {/* Private Route below */}
@@ -72,6 +75,7 @@ function App() {
             </Route>
 
           </Routes>
+          <Footer />
       </div>
     </Router>
     <ToastContainer />

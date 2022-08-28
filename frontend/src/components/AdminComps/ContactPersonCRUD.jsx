@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { BiRefresh } from "react-icons/bi";
+import { IoMdRefresh, IoMdRefreshCircle } from "react-icons/io";
+
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button';
 import { toast } from "react-toastify";
@@ -50,7 +53,7 @@ export default class testComp extends Component {
       .then(res => console.log(res.data));
     this.setState({ contactName: '', contactPhone: '', contactEmail: '', contactRole: '' })
 
-    toast.success(`Successfully created ${this.state.contactName}`);
+    toast.success(`${this.state.contactName} har skapats.`);
     // window.location.reload();
 
   }
@@ -83,6 +86,7 @@ export default class testComp extends Component {
         <p>Skapa Styrelsemedlem till Kontakt Sidan</p>
         {/* <p>Kontaktuppgifter till styrelsemedlemmar</p> */}
       </section>
+    <Button size="lg" block="block" type="submit" className="mt-4 mb-3" onClick={this.RefreshPage}><IoMdRefresh /></Button>
       <Form onSubmit={this.onSubmit}>
         <Form.Group controlId="Name">
           {/* <Form.Label>Namn</Form.Label> */}
@@ -108,7 +112,6 @@ export default class testComp extends Component {
         </Button>
 
       </Form>
-        <Button variant="danger" size="lg" block="block" type="submit" className="mt-4" onClick={this.RefreshPage}>Ladda Om Sidan</Button>
       </div>
 
       <div className="table-wrapper-admin">

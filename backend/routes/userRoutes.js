@@ -5,11 +5,14 @@ const {
   loginUser,
   getMe,
   userUpdateProfile,
+  fetchUsersCtrl,
 } = require("../controllers/userController");
 
 router.post("/", registerUser);
 
 router.post("/login", loginUser);
+
+router.get("/getAllUsers", fetchUsersCtrl);
 
 const { protect } = require("../middleware/authMiddleware");
 

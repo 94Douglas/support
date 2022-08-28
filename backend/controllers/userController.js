@@ -2,6 +2,7 @@ const asyncHandler = require("express-async-handler");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
+const expressAsyncHandler = require("express-async-handler");
 
 // @desc   Register a new user
 // @route  /api/users
@@ -119,9 +120,20 @@ const userUpdateProfile = asyncHandler(async (req, res) => {
   }
 })
 
+// Fetch all users.
+const fetchUsersCtrl = expressAsyncHandler(async (req, res) => {
+  try {
+    const users = await User.find({});
+    res.json(users);
+  } catch (error) {
+    res.json(error);
+  }
+})
+
 module.exports = {
   registerUser,
   loginUser,
   getMe,
-  userUpdateProfile
+  userUpdateProfile,
+  fetchUsersCtrl,
 };
