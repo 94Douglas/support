@@ -22,6 +22,7 @@ import ViewAllTickets from './pages/Admin/ViewAllTicketsAdmin/ViewAllTickets';
 import ContactPersonCRUDPage from './components/AdminComps/ContactPersonCRUD';
 import Footer from './components/Footer';
 import CreatedBy from './pages/Creator/CreatedBy';
+import ViewAllUsers from './components/AdminComps/ViewAllUsers/ViewAllUsersAdmin'
 
 function App() {
   return <>
@@ -72,6 +73,10 @@ function App() {
 
             <Route path='/edit-contact-name' element={<AdminPrivateRoute />}>
               <Route path='/edit-contact-name' element={<EditContactPerson />} />
+            </Route>
+
+            <Route path='/view-all-users' element={<AdminPrivateRoute />}>
+              <Route path='/view-all-users' element={<ViewAllUsers />} />
             </Route>
 
           </Routes>

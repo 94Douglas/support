@@ -121,10 +121,10 @@ const userUpdateProfile = asyncHandler(async (req, res) => {
 })
 
 // Fetch all users.
-const fetchUsersCtrl = expressAsyncHandler(async (req, res) => {
+const fetchUsersCtrl = asyncHandler(async (req, res) => {
   try {
     const users = await User.find({});
-    res.json(users);
+    res.status(200).json(users);
   } catch (error) {
     res.json(error);
   }

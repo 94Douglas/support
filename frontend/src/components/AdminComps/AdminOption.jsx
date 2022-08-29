@@ -47,7 +47,7 @@ function AdminOption() {
                 <ul>
                     <ImUsers />
                     <li>
-                        <Link to="/register">
+                        <Link to="/view-all-users">
                             Se Användare
                         </Link>
                     </li>
