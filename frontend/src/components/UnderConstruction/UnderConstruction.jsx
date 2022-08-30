@@ -5,7 +5,7 @@ function UnderConstruction() {
   return (
     <div>
         <section className='heading'>
-            <h3>Denna sidan är under uppbyggnad... Tryck <Link to={'/admin-panel'}>HÄR</Link> För att gå tillbaka! </h3>
+            <h3>Denna sidan är under uppbyggnad... Tryck <Link to={'/'}>HÄR</Link> För att komma vidare! </h3>
         </section>
     </div>
   )

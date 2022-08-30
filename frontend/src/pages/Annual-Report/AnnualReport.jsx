@@ -5,6 +5,7 @@ import axios from "axios";
 // Muppar sig med API_URL
 // import { API_URL } from '../../utils/constants';
 import "./AnnualReport.css";
+import UnderConstruction from "../../components/UnderConstruction/UnderConstruction";
 
 function AnnualReport(props) {
 
@@ -12,6 +13,7 @@ function AnnualReport(props) {
     <>
       <section className="heading">
         <h1>Årsredovisning</h1>
+        <p><UnderConstruction /></p>
 
         {/* https://www.youtube.com/watch?v=Y-VgaRwWS3o */}
       </section>
