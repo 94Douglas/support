@@ -18,14 +18,14 @@ function AdminOption() {
         </ul>
       </div>
 
-      <div className="d-inline-flex p-2 bd-highlight createUserTab">
+      {/* <div className="d-inline-flex p-2 bd-highlight createUserTab">
         <ul>
           <FaTicketAlt />
           <li>
             <Link to="/view-all-tickets">Se Felanmälningar</Link>
           </li>
         </ul>
-      </div>
+      </div> */}
 
       <div className="d-inline-flex p-2 bd-highlight createUserTab">
         <ul>
@@ -36,14 +36,14 @@ function AdminOption() {
         </ul>
       </div>
 
-      <div className="d-inline-flex p-2 bd-highlight createUserTab">
+      {/* <div className="d-inline-flex p-2 bd-highlight createUserTab">
         <ul>
           <ImUsers />
           <li>
             <Link to="/view-all-users">Se Användare</Link>
           </li>
         </ul>
-      </div>
+      </div> */}
 
       <div className="d-inline-flex p-2 bd-highlight createUserTab">
         <ul>
