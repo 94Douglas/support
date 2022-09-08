@@ -44,7 +44,6 @@ function Header() {
       </div>
       <ul>
         {user ? (
-          
           <li>
             Inloggad som: {user.name}
             {/* <h3>Roll: {adminSignedIn()}</h3> */}
@@ -59,7 +58,6 @@ function Header() {
           </>
         )}
       </ul>
-        
 
       <nav class="navbar fixed-right">
         <div class="container">
@@ -75,7 +73,7 @@ function Header() {
           </button>
           <div
             class="offcanvas offcanvas-end"
-            tabindex="-1"
+            tabIndex="-1"
             id="offcanvasNavbar"
             aria-labelledby="offcanvasNavbarLabel"
           >
@@ -93,25 +91,24 @@ function Header() {
               </button>
 
               <ul>
-        {user ? (
-          
-          <li>
-            Inloggad som: {user.name}
-            {/* <h3>Roll: {adminSignedIn()}</h3> */}
-          </li>
-        ) : (
-          <>
-            <li>
-              <Link to="/login">
-                <FaSignInAlt /> Logga In
-              </Link>
-            </li>
-          </>
-        )}
-      </ul>
+                {user ? (
+                  <li>
+                    Inloggad som: {user.name}
+                    {/* <h3>Roll: {adminSignedIn()}</h3> */}
+                  </li>
+                ) : (
+                  <>
+                    <li>
+                      <Link to="/login">
+                        <FaSignInAlt /> Logga In
+                      </Link>
+                    </li>
+                  </>
+                )}
+              </ul>
             </div>
             <div class="offcanvas-body">
-              <div classname="">
+              <div className="">
                 <ul class="border border-grey navbar-nav justify-content-end flex-grow-1 pe-3 ">
                   <li className="nav-item ">
                     <a class="nav-link ">
