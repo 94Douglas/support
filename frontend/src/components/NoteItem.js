@@ -5,14 +5,14 @@ function NoteItem({ note }) {
 
   return (
     <div
-    className='note'
-    style={{
-      backgroundColor: note.isStaff ? 'rgba(0,0,0,0.7)' : '#fff',
-      color: note.isStaff ? '#fff' : '#000',
-    }}
+      className="note"
+      style={{
+        backgroundColor: note.isStaff ? "rgba(0,0,0,0.7)" : "#fff",
+        color: note.isStaff ? "#fff" : "#000",
+      }}
     >
       <h4>
-        Note from {note.isStaff ? <span>Staff</span> : <span>{user.name}</span>}
+        Svar från {note.isStaff ? <span>Admin</span> : <span>{user.name}</span>}
       </h4>
 
       <p>{note.text}</p>

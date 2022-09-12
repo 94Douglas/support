@@ -42,7 +42,7 @@ const getTicket = asyncHandler(async (req, res) => {
   if (user.isAdmin) {
     res.status(200).json(ticket);
   }
-  
+
   if (ticket.user.toString() !== req.user.id) {
     res.status(401);
     throw new Error("Not Authorized.");

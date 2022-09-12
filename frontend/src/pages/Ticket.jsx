@@ -69,6 +69,10 @@ function Ticket() {
   const onNoteSubmit = (e) => {
     e.preventDefault();
     dispatch(createNote({ noteText, ticketId }));
+    if (user.isAdmin === true) {
+      toast.success("Du har svarat!");
+      navigate("/admin-panel");
+    }
     closeModal();
   };
 

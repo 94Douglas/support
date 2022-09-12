@@ -160,13 +160,13 @@ function Header() {
                       ) : (
                         /* If admin not being logged in, show below menu */
                         <>
-                          <li className="nav-item">
+                          {/* <li className="nav-item">
                             <a class="nav-link">
                               <Link to="/ticket-first-page">
                                 <TbReport /> Felanmälan
                               </Link>
                             </a>
-                          </li>
+                          </li> */}
                         </>
                       )}
                       {/* If user is logged in, show below */}

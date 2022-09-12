@@ -13,11 +13,18 @@ function AdminOption() {
         <ul>
           <FaUser />
           <li>
-            <Link to="/register">Skapa Användare</Link>
+            <Link to="/register">Skapa Administratör</Link>
           </li>
         </ul>
       </div>
-
+      <div className="d-inline-flex p-2 bd-highlight createUserTab">
+        <ul>
+          <FaUser />
+          <li>
+            <Link to="/register-normal-user">Skapa Användare</Link>
+          </li>
+        </ul>
+      </div>
       {/* <div className="d-inline-flex p-2 bd-highlight createUserTab">
         <ul>
           <FaTicketAlt />

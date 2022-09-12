@@ -18,6 +18,6 @@ const { protect } = require("../middleware/authMiddleware");
 
 router.get("/me", protect, getMe);
 
-router.post("/profile", protect, userUpdateProfile)
+router.post("/profile", protect, userUpdateProfile);
 
 module.exports = router;

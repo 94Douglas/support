@@ -23,6 +23,7 @@ import ContactPersonCRUDPage from "./components/AdminComps/ContactPersonCRUD";
 import Footer from "./components/Footer";
 import CreatedBy from "./pages/Creator/CreatedBy";
 import ViewAllUsers from "./components/AdminComps/ViewAllUsers/ViewAllUsersAdmin";
+import RegisterNormalUser from "./pages/RegisterNotAdmin";
 
 function App() {
   return (
@@ -84,6 +85,13 @@ function App() {
 
             <Route path="/view-all-users" element={<AdminPrivateRoute />}>
               <Route path="/view-all-users" element={<ViewAllUsers />} />
+            </Route>
+
+            <Route path="/register-normal-user" element={<AdminPrivateRoute />}>
+              <Route
+                path="/register-normal-user"
+                element={<RegisterNormalUser />}
+              />
             </Route>
 
             <Route path="/annual-report-admin" element={<AdminPrivateRoute />}>

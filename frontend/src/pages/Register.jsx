@@ -9,6 +9,8 @@ import Spinner from "../components/Spinner";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function Register() {
+  // Form data for admin user register
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -16,8 +18,6 @@ function Register() {
     confirmPassword: "",
     isAdmin: true,
   });
-
-  const isNotAdmin = false;
 
   const { name, email, password, confirmPassword, isAdmin } = formData;
 
@@ -43,6 +43,7 @@ function Register() {
   }, [isError, message, navigate, dispatch]);
   // }, [isError, isSuccess, user, message, navigate, dispatch]);
 
+  // OnChange data for Admin user register.
   const onChange = (e) => {
     e.preventDefault();
 
@@ -52,22 +53,24 @@ function Register() {
     }));
   };
 
+  // On Submit button for admin user register
   const onSubmit = (e) => {
     e.preventDefault();
-    
+
     if (password !== confirmPassword) {
       toast.error("Passwords do not match!");
-    } else{
+    } else {
       const userData = {
         name,
         email,
         password,
-        isAdmin
+        isAdmin,
       };
-      
+
       toast.success(`Successfully created ${formData.name}`);
       dispatch(register(userData));
-      window.location.reload();
+      // window.location.reload();
+      navigate("/admin-panel");
     }
   };
 
@@ -78,9 +81,9 @@ function Register() {
   return (
     <>
       <section className="heading">
-      <BackButton url="/admin-panel" />
+        <BackButton url="/admin-panel" />
         <h1>
-          <FaUser /> Registrera
+          <FaUser /> Registrera Administratör
         </h1>
         <p></p>
       </section>
@@ -138,48 +141,11 @@ function Register() {
               required
             />
           </div>
-
-          {/* <div class="dropdown">
-            <button
-              class="btn btn-secondary dropdown-toggle"
-              type="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Användare Administratör (Ja/Nej)
-            </button>
-            <ul class="dropdown-menu">
-              <li>
-                <h5 class="dropdown-item">Ja</h5>
-                <input
-                  type="checkbox"
-                  class="checkboxCenter"
-                  id="adminCheckbox"
-                  name="adminCheckbox"
-                  value={isAdmin}
-                  onChange={onChange}
-                  // onChange={onAdmin}
-                />
-              </li>
-              <li>
-                <h5 class="dropdown-item">Nej</h5>
-                <input
-                  type="checkbox"
-                  class="checkboxCenter"
-                  id="adminCheckbox"
-                  name="adminCheckbox"
-                  value={isNotAdmin}
-                  onChange={onChange}
-                />
-              </li>
-            </ul>
-          </div> */}
-
-          {/* <div className="form-group"></div> */}
           <div className="form-group">
-            <button className="btn btn-block">Registrera</button>
+            <button className="btn btn-block">Registrera Administratör</button>
           </div>
         </form>
+        <br />
       </section>
     </>
   );
