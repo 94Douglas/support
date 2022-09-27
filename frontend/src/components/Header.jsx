@@ -42,11 +42,10 @@ function Header() {
       <div className="logo">
         <Link to="/">Olovs Hage - Samfällighet</Link>
       </div>
-      <ul>
+      {/* <ul>
         {user ? (
           <li>
             Inloggad som: {user.name}
-            {/* <h3>Roll: {adminSignedIn()}</h3> */}
           </li>
         ) : (
           <>
@@ -57,7 +56,7 @@ function Header() {
             </li>
           </>
         )}
-      </ul>
+      </ul> */}
 
       <nav class="navbar fixed-right">
         <div class="container">

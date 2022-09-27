@@ -60,7 +60,7 @@ function AnnualReport() {
         <div>
           <p>
             <a
-              class="btn btn-secondary"
+              class="btn btn-outline-secondary"
               data-bs-toggle="collapse"
               href="#collapseExample"
               role="button"

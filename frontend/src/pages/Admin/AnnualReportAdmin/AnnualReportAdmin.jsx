@@ -26,15 +26,16 @@ function AnnualReportAdmin() {
   return (
     <div>
       <section>Ladda Upp Årsredovisning Admin Panel</section>
-      <div className="container">
+      <div className="input-group-center mb-3" style={{}}>
         <p>
           <input
+          className="form-control mt-3"
             type="file"
             onChange={(event) => {
               setFileUpload(event.target.files[0]);
             }}
           />
-          <button onClick={uploadFile}>Upload File</button>
+          <button className="btn btn-outline-success mt-3" onClick={uploadFile}>Ladda Upp Fil</button>
         </p>
         {/* {fileUrls.map((url) => {
             return <button onClick={() => openInNewTab(url)}>Öppna</button>;
