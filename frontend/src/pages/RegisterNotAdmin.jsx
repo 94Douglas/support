@@ -142,21 +142,21 @@ function RegisterNotAdmin() {
             />
           </div>
 
-          {/* <div class="dropdown">
+          {/* <div className="dropdown">
             <button
-              class="btn btn-secondary dropdown-toggle"
+              className="btn btn-secondary dropdown-toggle"
               type="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
               Användare Administratör (Ja/Nej)
             </button>
-            <ul class="dropdown-menu">
+            <ul className="dropdown-menu">
               <li>
-                <h5 class="dropdown-item">Ja</h5>
+                <h5 className="dropdown-item">Ja</h5>
                 <input
                   type="checkbox"
-                  class="checkboxCenter"
+                  className="checkboxCenter"
                   id="adminCheckbox"
                   name="adminCheckbox"
                   value={isAdmin}
@@ -165,10 +165,10 @@ function RegisterNotAdmin() {
                 />
               </li>
               <li>
-                <h5 class="dropdown-item">Nej</h5>
+                <h5 className="dropdown-item">Nej</h5>
                 <input
                   type="checkbox"
-                  class="checkboxCenter"
+                  className="checkboxCenter"
                   id="adminCheckbox"
                   name="adminCheckbox"
                   value={isNotAdmin}

@@ -58,31 +58,31 @@ function Header() {
         )}
       </ul> */}
 
-      <nav class="navbar fixed-right">
-        <div class="container">
-          <a class="navbar-brand">Meny</a>
+      <nav className="navbar fixed-right">
+        <div className="container">
+          <a className="navbar-brand">Meny</a>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasNavbar"
             aria-controls="offcanvasNavbar"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
           <div
-            class="offcanvas offcanvas-end"
+            className="offcanvas offcanvas-end"
             tabIndex="-1"
             id="offcanvasNavbar"
             aria-labelledby="offcanvasNavbarLabel"
           >
-            <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+            <div className="offcanvas-header">
+              <h5 className="offcanvas-title" id="offcanvasNavbarLabel">
                 Meny
               </h5>
               <button
                 type="button"
-                class="btn-close"
+                className="btn-close"
                 data-bs-dismiss="offcanvas"
                 aria-label="Close"
               >
@@ -106,11 +106,11 @@ function Header() {
                 )}
               </ul>
             </div>
-            <div class="offcanvas-body">
+            <div className="offcanvas-body">
               <div className="">
-                <ul class="border border-grey navbar-nav justify-content-end flex-grow-1 pe-3 ">
+                <ul className="border border-grey navbar-nav justify-content-end flex-grow-1 pe-3 ">
                   <li className="nav-item ">
-                    <a class="nav-link ">
+                    <a className="nav-link ">
                       <Link to="/">
                         <MdHome /> Hem
                       </Link>
@@ -118,21 +118,21 @@ function Header() {
                   </li>
 
                   <li className="nav-item">
-                    <a class="nav-link">
+                    <a className="nav-link">
                       <Link to="/about-us">
                         <GrGroup /> Om Oss
                       </Link>
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a class="nav-link">
+                    <a className="nav-link">
                       <Link to="/contact-us">
                         <MdContactPage /> Kontakt
                       </Link>
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a class="nav-link">
+                    <a className="nav-link">
                       <Link to="/annual-report">
                         <TbReport /> Årsredovisning
                       </Link>
@@ -149,7 +149,7 @@ function Header() {
                       {user.isAdmin ? (
                         <>
                           <li className="nav-item">
-                            <a class="nav-link">
+                            <a className="nav-link">
                               <Link to="/admin-panel">
                                 <MdAdminPanelSettings /> Admin Panel
                               </Link>
@@ -160,7 +160,7 @@ function Header() {
                         /* If admin not being logged in, show below menu */
                         <>
                           {/* <li className="nav-item">
-                            <a class="nav-link">
+                            <a className="nav-link">
                               <Link to="/ticket-first-page">
                                 <TbReport /> Felanmälan
                               </Link>
@@ -171,7 +171,7 @@ function Header() {
                       {/* If user is logged in, show below */}
 
                       <li className="nav-item">
-                        <a class="nav-link">
+                        <a className="nav-link">
                           <button className="btn btn-danger" onClick={onLogout}>
                             <FaSignOutAlt /> Logga Ut
                           </button>

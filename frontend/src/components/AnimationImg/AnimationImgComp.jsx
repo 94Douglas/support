@@ -6,16 +6,16 @@ import imgThree from '../../images/imgThree.jpg';
 
 function AnimationImgComp() {
   return (
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src={imgOne} class="imageSlider imageSliderOne d-block w-100" alt="First Image" />
+    <div id="carouselExampleSlidesOnly" className="carousel slide" data-bs-ride="carousel">
+  <div className="carousel-inner">
+    <div className="carousel-item active">
+      <img src={imgOne} className="imageSlider imageSliderOne d-block w-100" alt="First Image" />
     </div>
-    <div class="carousel-item">
-      <img src={imgTwo} class="imageSlider d-block w-100" alt="Second Image" />
+    <div className="carousel-item">
+      <img src={imgTwo} className="imageSlider d-block w-100" alt="Second Image" />
     </div>
-    <div class="carousel-item">
-      <img src={imgThree} class="imageSlider d-block w-100" alt="Third Image" />
+    <div className="carousel-item">
+      <img src={imgThree} className="imageSlider d-block w-100" alt="Third Image" />
     </div>
   </div>
 </div>

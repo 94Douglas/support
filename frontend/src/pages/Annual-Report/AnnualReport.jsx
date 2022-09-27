@@ -60,7 +60,7 @@ function AnnualReport() {
         <div>
           <p>
             <a
-              class="btn btn-outline-secondary"
+              className="btn btn-outline-secondary"
               data-bs-toggle="collapse"
               href="#collapseExample"
               role="button"
@@ -70,12 +70,12 @@ function AnnualReport() {
               Se Årsredovisningar
             </a>
           </p>
-          {fileUrls.map((url) => {
+          {fileUrls.map((url, key) => {
             return (
-              <div class="collapse" id="collapseExample">
-                <div class="card card-body">
+              <div className="collapse" id="collapseExample" key={key}>
+                <div className="card card-body">
                   <button
-                    class="btn btn-secondary"
+                    className="btn btn-secondary"
                     onClick={() => openInNewTab(url)}
                   >
                     {/* {fileName} */}
