@@ -1,42 +1,55 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-// Muppar sig med API_URL
-// import { API_URL } from '../../utils/constants';
+import { toast } from "react-toastify";
+
 import "./AnnualReport.css";
 import { useSelector, useDispatch } from "react-redux";
 import { storage } from "../../firebase/firebase";
 import {
+  getStorage,
   ref,
   uploadBytes,
   listAll,
   getDownloadURL,
-  FullMetadata,
+  deleteObject
 } from "firebase/storage";
 import { v4 } from "uuid";
 
 function AnnualReport() {
   const [fileUpload, setFileUpload] = useState(null);
   const [fileUrls, setFileUrls] = useState([]);
-  const fileCounter = 1;
-
+const counter = 0;
   const fileListRef = ref(storage, "files/");
 
   const fileName = fileUrls;
 
   const { user } = useSelector((state) => state.auth);
 
-  const uploadFile = () => {
-    if (fileUpload == null) return;
+  const DeleteAnnualPost = (url) => {
 
-    const fileRef = ref(storage, `files/${fileUpload.name + v4()}`);
+    const storage = getStorage();
 
-    uploadBytes(fileRef, fileUpload).then((snapshot) => {
-      getDownloadURL(snapshot.ref).then((url) => {
-        setFileUrls((prev) => [...prev, url]);
-      });
+    // Create a reference to the file to delete
+    const desertRef = ref(storage, url);
+
+    // Delete the file
+    deleteObject(desertRef).then(() => {
+      toast.success("Fil borttagen!");
+    }).catch((error) => {
+      toast.error("Något gick snett..");
+      console.log(error);
     });
-  };
+  }
+
+  const getName = (url) => {
+    const storage = getStorage();
+
+    // Create a reference to the file to delete
+    const desertRef = ref(storage, url);
+
+    return desertRef;
+  }
 
   useEffect(() => {
     listAll(fileListRef).then((response) => {
@@ -46,7 +59,7 @@ function AnnualReport() {
         });
       });
     });
-  }, [fileCounter]);
+  }, []);
 
   const openInNewTab = (url) => {
     window.open(url, "_blank", "noopener,noreferrer");
@@ -74,12 +87,18 @@ function AnnualReport() {
             return (
               <div className="collapse" id="collapseExample" key={key}>
                 <div className="card card-body">
+                
                   <button
                     className="btn btn-secondary"
                     onClick={() => openInNewTab(url)}
                   >
-                    {/* {fileName} */}
                     Öppna Årsredovisning
+                  </button>
+                  <button
+                    className="btn btn-secondary" key={key}
+                    onClick={() => DeleteAnnualPost(url)}
+                  >
+                    Raddera
                   </button>
                 </div>
               </div>
