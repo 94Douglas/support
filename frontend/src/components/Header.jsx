@@ -71,7 +71,9 @@ function Header() {
                   <>
                     <li>
                       <Link to="/login">
-                        <FaSignInAlt /> Logga In
+                        <div data-bs-dismiss="offcanvas">
+                          <FaSignInAlt /> Logga In
+                        </div>
                       </Link>
                     </li>
                   </>
