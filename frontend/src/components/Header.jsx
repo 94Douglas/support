@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { FaSignInAlt, FaSignOutAlt, FaUser, FaTicketAlt } from "react-icons/fa";
+import { FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
 import { RiCloseLine } from "react-icons/ri";
 import { TbReport } from "react-icons/tb";
 import { MdHome, MdContactPage, MdAdminPanelSettings } from "react-icons/md";
@@ -25,38 +24,11 @@ function Header() {
     dispatch(reset());
     navigate("/");
   };
-
-  // const adminSignedIn = () => {
-  //   if(user.isAdmin === true){
-  //     return 'Admin'
-  //   } else {
-  //     return 'Normal'
-  //   }
-  // }
-
-  // const openModal = () => setModalIsOpen(true);
-  // const closeModal = () => setModalIsOpen(false);
-
   return (
     <header className="headerr">
       <div className="logo">
         <Link to="/">Olovs Hage - Samfällighet</Link>
       </div>
-      {/* <ul>
-        {user ? (
-          <li>
-            Inloggad som: {user.name}
-          </li>
-        ) : (
-          <>
-            <li>
-              <Link to="/login">
-                <FaSignInAlt /> Logga In
-              </Link>
-            </li>
-          </>
-        )}
-      </ul> */}
 
       <nav className="navbar fixed-right">
         <div className="container">
@@ -112,7 +84,10 @@ function Header() {
                   <li className="nav-item ">
                     <a className="nav-link ">
                       <Link to="/">
-                        <MdHome /> Hem
+                        <div data-bs-dismiss="offcanvas">
+                          <MdHome />
+                          Hem
+                        </div>
                       </Link>
                     </a>
                   </li>
@@ -120,21 +95,27 @@ function Header() {
                   <li className="nav-item">
                     <a className="nav-link">
                       <Link to="/about-us">
-                        <GrGroup /> Om Oss
+                        <div data-bs-dismiss="offcanvas">
+                          <GrGroup /> Om Oss
+                        </div>
                       </Link>
                     </a>
                   </li>
                   <li className="nav-item">
                     <a className="nav-link">
                       <Link to="/contact-us">
-                        <MdContactPage /> Kontakt
+                        <div data-bs-dismiss="offcanvas">
+                          <MdContactPage /> Kontakt
+                        </div>
                       </Link>
                     </a>
                   </li>
                   <li className="nav-item">
                     <a className="nav-link">
                       <Link to="/annual-report">
-                        <TbReport /> Årsredovisning
+                        <div data-bs-dismiss="offcanvas">
+                          <TbReport /> Årsredovisning
+                        </div>
                       </Link>
                     </a>
                   </li>
@@ -151,7 +132,9 @@ function Header() {
                           <li className="nav-item">
                             <a className="nav-link">
                               <Link to="/admin-panel">
-                                <MdAdminPanelSettings /> Admin Panel
+                                <div data-bs-dismiss="offcanvas">
+                                  <MdAdminPanelSettings /> Admin Panel
+                                </div>
                               </Link>
                             </a>
                           </li>
@@ -162,7 +145,9 @@ function Header() {
                           {/* <li className="nav-item">
                             <a className="nav-link">
                               <Link to="/ticket-first-page">
+                              <div data-bs-dismiss="offcanvas">
                                 <TbReport /> Felanmälan
+                              </div>  
                               </Link>
                             </a>
                           </li> */}
@@ -173,7 +158,9 @@ function Header() {
                       <li className="nav-item">
                         <a className="nav-link">
                           <button className="btn btn-danger" onClick={onLogout}>
-                            <FaSignOutAlt /> Logga Ut
+                            <div data-bs-dismiss="offcanvas">
+                              <FaSignOutAlt /> Logga Ut
+                            </div>
                           </button>
                         </a>
                       </li>
@@ -187,9 +174,6 @@ function Header() {
           </div>
         </div>
       </nav>
-      {/* <li> */}
-      {/* <BsArrowBarDown /> */}
-      {/* </li> */}
     </header>
   );
 }

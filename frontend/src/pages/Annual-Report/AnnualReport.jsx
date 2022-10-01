@@ -1,55 +1,41 @@
-import React, { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
+import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
-
+import { BsTrash } from "react-icons/bs";
 import "./AnnualReport.css";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { storage } from "../../firebase/firebase";
 import {
   getStorage,
   ref,
-  uploadBytes,
   listAll,
   getDownloadURL,
-  deleteObject
+  deleteObject,
 } from "firebase/storage";
-import { v4 } from "uuid";
 
 function AnnualReport() {
-  const [fileUpload, setFileUpload] = useState(null);
   const [fileUrls, setFileUrls] = useState([]);
-const counter = 0;
   const fileListRef = ref(storage, "files/");
 
-  const fileName = fileUrls;
+  // const fileName = fileUrls;
 
   const { user } = useSelector((state) => state.auth);
 
   const DeleteAnnualPost = (url) => {
-
     const storage = getStorage();
 
     // Create a reference to the file to delete
     const desertRef = ref(storage, url);
 
     // Delete the file
-    deleteObject(desertRef).then(() => {
-      toast.success("Fil borttagen!");
-    }).catch((error) => {
-      toast.error("Något gick snett..");
-      console.log(error);
-    });
-  }
-
-  const getName = (url) => {
-    const storage = getStorage();
-
-    // Create a reference to the file to delete
-    const desertRef = ref(storage, url);
-
-    return desertRef;
-  }
+    deleteObject(desertRef)
+      .then(() => {
+        toast.success("Fil borttagen!");
+      })
+      .catch((error) => {
+        toast.error("Något gick snett..");
+        console.log(error);
+      });
+  };
 
   useEffect(() => {
     listAll(fileListRef).then((response) => {
@@ -87,19 +73,45 @@ const counter = 0;
             return (
               <div className="collapse" id="collapseExample" key={key}>
                 <div className="card card-body">
-                
                   <button
                     className="btn btn-secondary"
+                    style={{
+                      width: "50%",
+                      alignSelf: "center",
+                    }}
                     onClick={() => openInNewTab(url)}
                   >
                     Öppna Årsredovisning
                   </button>
-                  <button
-                    className="btn btn-secondary" key={key}
-                    onClick={() => DeleteAnnualPost(url)}
-                  >
-                    Raddera
-                  </button>
+                  {user ? (
+                    user.isAdmin ? (
+                      <button
+                        className="btn btn-danger"
+                        style={{
+                          width: "10%",
+                          position: "absolute",
+                          top: "0px",
+                          right: "0px",
+
+                          // marginTop: "5px",
+                          // marginBottom: "5px",
+                          // position: "relative",
+                        }}
+                        key={key}
+                        onClick={() => DeleteAnnualPost(url)}
+                      >
+                        <BsTrash
+                          style={{
+                            marginLeft: "2px",
+                          }}
+                        />
+                      </button>
+                    ) : (
+                      <></>
+                    )
+                  ) : (
+                    <></>
+                  )}
                 </div>
               </div>
             );
