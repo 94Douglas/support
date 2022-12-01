@@ -12,6 +12,7 @@ import NewTicket from "./pages/NewTicket";
 import Tickets from "./pages/Tickets";
 import Ticket from "./pages/Ticket";
 import ContactUs from "./pages/ContactUs";
+import ContactUsGlobal from "./pages/ContactUsGlobal";
 import AboutUs from "./pages/AboutUs";
 import AnnualReport from "./pages/Annual-Report/AnnualReport";
 import AnnualReportAdmin from "./pages/Admin/AnnualReportAdmin/AnnualReportAdmin";
@@ -34,7 +35,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about-us" element={<AboutUs />} />
-            <Route path="/contact-us" element={<ContactUs />} />
+            <Route path="/contact-us-global" element={<ContactUsGlobal />} />
             <Route path="/annual-report" element={<AnnualReport />} />
             <Route path="/login" element={<Login />} />
             <Route path="/createdBy" element={<CreatedBy />} />
@@ -43,6 +44,10 @@ function App() {
             {/* Private Route below */}
             <Route path="/new-ticket" element={<PrivateRoute />}>
               <Route path="/new-ticket" element={<NewTicket />} />
+            </Route>
+
+            <Route path="/contact-us" element={<PrivateRoute />}>
+              <Route path="/contact-us" element={<ContactUs />} />
             </Route>
 
             <Route path="/ticket-first-page" element={<PrivateRoute />}>

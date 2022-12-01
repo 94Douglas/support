@@ -1,29 +1,30 @@
 // import React from 'react'
-import PageBorder from '../components/PageBorder'
+import PageBorder from "../components/PageBorder";
 import React, { Component } from "react";
-import axios from 'axios';
-import Table from 'react-bootstrap/Table';
-import ContactTableRow from '../components/ContactTableRow';
-import "../components/styleContact.css";
+import axios from "axios";
+import Table from "react-bootstrap/Table";
+import ContactTableRow from "../components/ContactTableRow";
 
+import "../components/styleContact.css";
 export default class ContactUs extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      contactPersons: []
+      contactPersons: [],
     };
   }
   componentDidMount() {
     // axios.get('http://localhost:5000/contact-info')
-    axios.get('https://olovshageback.herokuapp.com/contact-info')
-      .then(res => {
+    axios
+      .get("https://olovshageback.herokuapp.com/contact-info")
+      .then((res) => {
         this.setState({
-          contactPersons: res.data
+          contactPersons: res.data,
         });
       })
       .catch((error) => {
         console.log(error);
-      })
+      });
   }
   DataTable() {
     return this.state.contactPersons.map((res, i) => {
@@ -33,26 +34,25 @@ export default class ContactUs extends Component {
 
   render() {
     return (
-    <div>
+      <div>
         <section className="heading">
-        <h1>Kontaktuppgifter</h1>
-        {/* <p>Kontaktuppgifter till styrelsemedlemmar</p> */}
-      </section>
-      <div className="table-wrapper">
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>Namn</th>
-            <th>Telefonnummer</th>
-            <th>Email</th>
-            <th>Roll</th>
-          </tr>
-        </thead>
-        <tbody>
-          {this.DataTable()}
-        </tbody>
-      </Table>
+          <h1>Kontaktuppgifter</h1>
+          {/* <p>Kontaktuppgifter till styrelsemedlemmar</p> */}
+        </section>
+        <div className="table-wrapper">
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>Namn</th>
+                <th>Telefonnummer</th>
+                <th>Email</th>
+                <th>Roll</th>
+              </tr>
+            </thead>
+            <tbody>{this.DataTable()}</tbody>
+          </Table>
+        </div>
       </div>
-    </div>);
+    );
   }
 }

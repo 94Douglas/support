@@ -103,15 +103,28 @@ function Header() {
                       </Link>
                     </a>
                   </li>
-                  <li className="nav-item">
-                    <a className="nav-link">
-                      <Link to="/contact-us">
-                        <div data-bs-dismiss="offcanvas">
-                          <MdContactPage /> Kontakt
-                        </div>
-                      </Link>
-                    </a>
-                  </li>
+                  {user ? (
+                    <li className="nav-item">
+                      <a className="nav-link">
+                        <Link to="/contact-us">
+                          <div data-bs-dismiss="offcanvas">
+                            <MdContactPage /> Kontakt
+                          </div>
+                        </Link>
+                      </a>
+                    </li>
+                  ) : (
+                    <li className="nav-item">
+                      <a className="nav-link">
+                        <Link to="/contact-us-global">
+                          <div data-bs-dismiss="offcanvas">
+                            <MdContactPage /> Kontakt
+                          </div>
+                        </Link>
+                      </a>
+                    </li>
+                  )}
+
                   <li className="nav-item">
                     <a className="nav-link">
                       <Link to="/annual-report">
