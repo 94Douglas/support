@@ -12,7 +12,9 @@ export default class ContactTableRow extends Component {
       .delete(
         // "http://localhost:5000/contact-info/delete-contact-name/" +
         // "https://olovshageback.herokuapp.com/contact-info/delete-contact-name/" +
-        BACKEND + "/contact-info/delete-contact-name/" + this.props.obj._id
+        "https://olovshagebackend.onrender.com" +
+          "/contact-info/delete-contact-name/" +
+          this.props.obj._id
       )
       .then((res) => {
         console.log("Successfully deleted!");

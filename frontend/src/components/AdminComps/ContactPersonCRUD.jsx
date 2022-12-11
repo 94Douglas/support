@@ -51,7 +51,7 @@ export default class testComp extends Component {
     // axios.post('http://localhost:5000/contact-info/create-contact-name', contactObject)
     axios
       .post(
-        "https://olovshageback.herokuapp.com/contact-info/create-contact-name",
+        "https://olovshagebackend.onrender.com/contact-info/create-contact-name",
         contactObject
       )
       .then((res) => console.log(res.data));
@@ -68,7 +68,7 @@ export default class testComp extends Component {
   componentDidMount() {
     // axios.get('http://localhost:5000/contact-info')
     axios
-      .get("https://olovshageback.herokuapp.com/contact-info")
+      .get("https://olovshagebackend.onrender.com/contact-info")
       .then((res) => {
         this.setState({
           contactPersons: res.data,

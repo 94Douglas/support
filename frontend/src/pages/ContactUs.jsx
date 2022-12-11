@@ -16,7 +16,7 @@ export default class ContactUs extends Component {
   componentDidMount() {
     // axios.get('http://localhost:5000/contact-info')
     axios
-      .get("https://olovshageback.herokuapp.com/contact-info")
+      .get("https://olovshagebackend.onrender.com/contact-info")
       .then((res) => {
         this.setState({
           contactPersons: res.data,
